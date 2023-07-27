@@ -1,0 +1,29 @@
+{% load static %}
+<header>
+    <a href="#" class="logo">Flower<span>.</span></a>
+    <nav class="navbar"> 
+        
+        <a class="active" href={% url 'home' %}>Home</a>
+        <a href="#">About us</a>
+        <a href="#">Our Products</a>
+        <a href="#">Contact Us</a>
+        
+
+    </nav>
+    
+    <div class="icon">
+        <a href="" class="fas fa-heart"></a>
+        <a href="" class="fas fa-shopping-cart"></a>
+        {% if user.is_authenticated %}
+        <a href={% url 'logout' %} class="fas fa-sign-out-alt"></a>
+        
+        {% else %}
+        <a href= {% url 'login' %} class="fas fa-user"></a>
+        
+        {% endif %}
+        
+            
+    </div>
+
+    
+</header>

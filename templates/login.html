@@ -1,0 +1,62 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href={% static 'style.css' %}>
+    <link rel="shortcut icon" href="back.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/9e8b18605e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% for message in messages %}
+    <h2>{{message}}</h2>
+    {% endfor %}
+
+    <div class="container">
+        <div class="form-box">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+            <h1>Login</h1>
+
+            <form action="login" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" name="username">
+                    </div>
+                    
+                    <div class="input-field">
+                        <i class="fa fa-key"></i>
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    
+                    <div class="forget">
+                        <a href={% url 'send_otp_email' %}>forgot password</a>
+                    </div>
+
+                    <div class="note">
+                        <h2>dont have account sign up here</h2>
+                    </div>
+                    
+                    <div class="btn-field">
+                        <button type="submit">Login</button>
+                        <button><a href={% url 'register' %}>sign up</a></button>
+                    </div>
+                    
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include 'foot.html' %}
+</body>
+</html>

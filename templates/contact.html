@@ -1,0 +1,26 @@
+{% load static %}
+
+<section class="contact" id="contact">
+    <h1 class="heading"><span>contact</span>us</h1>
+        {% for message in messages %}
+        <h4>{{message}}</h4>
+        {% endfor %}
+    <div class="row" >
+        <form action='' method="POST">
+            {% csrf_token %}
+            <input name='name' type="text" placeholder="Name" class="box">
+            <input name='email'type="email" placeholder="email" class="box">
+            <input name='number' type="number" placeholder="number" class="box">
+            <textarea name="message" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="send message" class="btn">
+        </form>
+
+       <div class="image">
+        <img src={% static 'redd-f-PTRzqc_h1r4-unsplash.jpg' %}  alt="">
+        
+       </div>
+        
+
+        
+    </div>
+</section>
